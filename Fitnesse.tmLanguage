@@ -332,6 +332,15 @@
       <string>(\|)\s*(eval)\s*(\|)</string>
     </dict>
 
+    <!-- query:remote -->
+    <dict>
+      <key>match</key>
+      <string>(?i:query:remote)</string>
+      <key>name</key>
+      <string>storage.type.fitnesse</string>
+    </dict>
+    
+
     <!-- fitnesse define -->
     <dict>
       <key>captures</key>
@@ -370,6 +379,74 @@
       <key>match</key>
       <string>(\!)(define)\s*((?:\p{L}|\d|_)+)\s*(\{)([^\}]+)(\})</string>
     </dict>
+
+    <!-- test -->
+    <!-- <dict>
+      <key>match</key>
+      <string>\!\-.*\-\!</string>
+      <key>name</key>
+      <string>invalid.deprecated.fitnesse</string>
+    </dict> -->
+
+    <!-- <dict>
+      <key>begin</key>
+      <string>\!\-</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>invalid.deprecated.fitnesse</string>
+        </dict>
+      </dict>
+
+      <key>end</key>
+      <string>\-\!</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>invalid.deprecated.fitnesse</string>
+        </dict>
+      </dict>
+
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>$self</string>
+        </dict>
+      </array>
+    </dict>
+
+    <dict>
+      <key>begin</key>
+      <string>\|(?=\s*aaa)</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.function.fitnesse</string>
+        </dict>
+      </dict>
+
+      <key>end</key>
+      <string>\|\s*$</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>entity.name.function.fitnesse</string>
+        </dict>
+      </dict>
+
+      <key>patterns</key>
+      <array>
+      </array>
+    </dict> -->
 
     <!-- comment 1 -->
     <dict>
@@ -433,6 +510,7 @@
       <key>include</key>
       <string>#commands</string>
     </dict>
+
     <dict>
       <key>include</key>
       <string>#variable</string>
@@ -625,7 +703,7 @@
     </dict>
     <dict>
       <key>match</key>
-      <string>(?i:[a-z][a-z0-9]+-?[a-z][a-z0-9]+)(?i:\.(?i:exe|cmd|bat|ps1))</string>
+      <string>(?i:[a-z][a-z0-9]+-?[a-z][a-z0-9]+)(?i:\.(?i:exe|cmd|bat|ps1|dll))</string>
       <key>name</key>
       <string>support.function.fitnesse</string>
     </dict>
