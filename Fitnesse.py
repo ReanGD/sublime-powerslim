@@ -2,6 +2,21 @@ import sublime, sublime_plugin
 import os.path
 import webbrowser
 
+class FitnesseSelectCommand(sublime_plugin.EventListener):
+
+	def check_syntax(self, view):
+		if os.path.basename(view.file_name()) == "content.txt":
+			current_syntax = view.settings().get('syntax')
+			if current_syntax != "Packages/Fitnesse/Fitnesse.tmLanguage":
+				view.set_syntax_file("Packages/Fitnesse/Fitnesse.tmLanguage")
+
+	def on_load(self, view):
+		self.check_syntax(view)
+
+	def on_post_save(self, view):
+		self.check_syntax(view)
+
+
 class FitnesseTestCommand(sublime_plugin.TextCommand):
 
 	def _get_path_list(self, dir_path):
