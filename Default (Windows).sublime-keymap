@@ -1,0 +1,10 @@
+[
+    { "keys": ["ctrl+b"], "command": "fitnesse_test", "context":
+        [
+          { "key": "selector",
+            "operator": "equal",
+            "operand": "source.fitnesse",
+            "match_all": true }
+        ]
+    },
+]
