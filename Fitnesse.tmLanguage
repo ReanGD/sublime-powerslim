@@ -240,6 +240,51 @@
       </array>
     </dict>
 
+    <!-- scenario call -->
+    <dict>
+      <key>begin</key>
+      <string>^\|(?!\s*(?i:scenario|eval|script|show|check|query|\$))</string>
+      <key>beginCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.other.fitnesse</string>
+        </dict>
+      </dict>
+      <key>end</key>
+      <string>\|\s*$</string>
+      <key>endCaptures</key>
+      <dict>
+        <key>0</key>
+        <dict>
+          <key>name</key>
+          <string>keyword.other.fitnesse</string>
+        </dict>
+      </dict>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#variable</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#DoubleQuotedString</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#SingleQuotedString</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>(\||\!\-|\-\!|\=)</string>
+          <key>name</key>
+          <string>keyword.other.fitnesse</string>
+        </dict>
+      </array>
+    </dict>
+
     <!-- script call header -->
     <dict>
       <key>captures</key>
@@ -274,7 +319,7 @@
       <string>(\|)\s*(script)\s*(\|)(\s*(?i:remote)\s*(\|))?</string>
     </dict>
 
-    <!-- "check eval" -->
+    <!-- "check/show eval" -->
     <dict>
       <key>captures</key>
       <dict>
@@ -305,7 +350,7 @@
         </dict>
       </dict>
       <key>match</key>
-      <string>(\|)\s*(check)\s*(\|)(\s*(eval)\s*(\|))?</string>
+      <string>(\|)\s*(check|show)\s*(\|)(\s*(eval)\s*(\|))?</string>
     </dict>
 
     <!-- eval only -->
@@ -531,42 +576,11 @@
       <key>include</key>
       <string>#type</string>
     </dict>
-
-    <!-- double quoted string -->
     <dict>
-      <key>begin</key>
-      <string>(?&lt;!(?&lt;!`)")"</string>
-      <key>end</key>
-      <string>"(?!")</string>
-      <key>name</key>
-      <string>string.quoted.double.fitnesse</string>
-      <key>patterns</key>
-      <array>
-        <dict>
-          <key>include</key>
-          <string>#variableFitEscape</string>
-        </dict>
-        <!-- not support
-        <dict>
-          <key>include</key>
-          <string>#variableNoProperty</string>
-        </dict> -->
-        <dict>
-          <key>include</key>
-          <string>#doubleQuotedStringEscapes</string>
-        </dict>
-        <dict>
-          <key>include</key>
-          <string>#interpolation</string>
-        </dict>
-        <dict>
-          <key>match</key>
-          <string>`\s*$</string>
-          <key>name</key>
-          <string>keyword.other.fitnesse</string>
-        </dict>
-      </array>
+      <key>include</key>
+      <string>#DoubleQuotedString</string>
     </dict>
+    
 
     <dict>
       <key>comment</key>
@@ -575,27 +589,9 @@
       <string>#doubleQuotedStringEscapes</string>
     </dict>
 
-    <!-- single quoted string -->
     <dict>
-      <key>begin</key>
-      <string>(?&lt;!')'</string>
-      <key>end</key>
-      <string>'(?!')</string>
-      <key>name</key>
-      <string>string.quoted.single.fitnesse</string>
-      <key>patterns</key>
-      <array>
-        <dict>
-          <key>include</key>
-          <string>#variableFitEscape</string>
-        </dict>
-        <dict>
-          <key>match</key>
-          <string>''</string>
-          <key>name</key>
-          <string>constant.character.escape.fitnesse</string>
-        </dict>
-      </array>
+      <key>include</key>
+      <string>#SingleQuotedString</string>
     </dict>
 
     <dict>
@@ -1495,6 +1491,67 @@
         <dict>
           <key>include</key>
           <string>#variable</string>
+        </dict>
+      </array>
+    </dict>
+
+    <!-- sys:DoubleQuotedString -->
+    <key>DoubleQuotedString</key>
+    <dict>
+      <key>begin</key>
+      <string>(?&lt;!(?&lt;!`)")"</string>
+      <key>end</key>
+      <string>"(?!")</string>
+      <key>name</key>
+      <string>string.quoted.double.fitnesse</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#variableFitEscape</string>
+        </dict>
+        <!-- not support
+        <dict>
+          <key>include</key>
+          <string>#variableNoProperty</string>
+        </dict> -->
+        <dict>
+          <key>include</key>
+          <string>#doubleQuotedStringEscapes</string>
+        </dict>
+        <dict>
+          <key>include</key>
+          <string>#interpolation</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>`\s*$</string>
+          <key>name</key>
+          <string>keyword.other.fitnesse</string>
+        </dict>
+      </array>
+    </dict>
+
+    <!-- sys:SingleQuotedString -->
+    <key>SingleQuotedString</key>
+    <dict>
+      <key>begin</key>
+      <string>(?&lt;!')'</string>
+      <key>end</key>
+      <string>'(?!')</string>
+      <key>name</key>
+      <string>string.quoted.single.fitnesse</string>
+      <key>patterns</key>
+      <array>
+        <dict>
+          <key>include</key>
+          <string>#variableFitEscape</string>
+        </dict>
+        <dict>
+          <key>match</key>
+          <string>''</string>
+          <key>name</key>
+          <string>constant.character.escape.fitnesse</string>
         </dict>
       </array>
     </dict>
