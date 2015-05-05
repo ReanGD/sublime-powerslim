@@ -1,5 +1,5 @@
 # sublime-powerslim
-Для установки плагина - найти в месте установки sublime text директорию "Packages" (путь примерно такой: "c:\Program Files (x86)\SublimeText3\Data\Packages\") в ней создать поддиректорию "Fitnesse" и поместить туда содержимое текущего репозитория
+Для установки плагина - найти в месте установки sublime text директорию "Data\Packages" (путь примерно такой: "c:\Program Files (x86)\SublimeText3\Data\Packages\") в ней создать поддиректорию "Fitnesse" и поместить туда содержимое текущего репозитория
 
 Подсветка включается для всех файлов с названием "content.txt"
 
@@ -7,7 +7,7 @@
 
 --
 
-To install the plug - go to the sublime "Packages" directory (you can find it in the installation sublime text directory, path example: "c:\Program Files (x86)\SublimeText3\Data\Packages\") and create a subdirectory "Fitnesse". Put all contents of the current repository to this new directory.
+To install the plug - go to the sublime "Data\Packages" directory (you can find it in the installation sublime text directory, path example: "c:\Program Files (x86)\SublimeText3\Data\Packages\") and create a subdirectory "Fitnesse". Put all contents of the current repository to this new directory.
 
 The backlight is turned on for all files with the name "content.txt"
 
